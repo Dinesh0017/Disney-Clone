@@ -33,14 +33,14 @@ const menu=[{
         <div className='flex items-center gap-12'>
                     <img src={logo} className='w-[70px] object-cover md:w-[115px] mx-8'/>   
             <div className="hidden gap-8 md:flex">
-                     {menu.map((item)=>(
-                        <HeaderItems name={item.name} Icon={item.icon}/>
+                     {menu.map((item,index)=>(
+                        <HeaderItems key={index} name={item.name} Icon={item.icon}/>
                      ))}
             </div>
         
             <div className="flex gap-5 md:hidden">
                      {menu.map((item,index)=>index < 3 && (
-                        <HeaderItems name={''} Icon={item.icon}/>
+                        <HeaderItems key={index} name={''} Icon={item.icon}/>
                     ))}
             </div>
         
@@ -50,7 +50,7 @@ const menu=[{
                  {toggle ?
                     <div className='absolute mt-3 bg-[#121212] border-[1px] border-gray-700 p-3 px-5 py-4 '>
                     {menu.map((item,index)=>index > 2 && (
-                        <HeaderItems name={item.name} Icon={item.icon}/>
+                        <HeaderItems key={index} name={item.name} Icon={item.icon}/>
                     ))}
                     </div>
                 :null}
